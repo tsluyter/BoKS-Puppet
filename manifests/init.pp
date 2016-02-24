@@ -1,48 +1,50 @@
 # Class: boks
 # ===========================
 #
-# Full description of class boks here.
+# This Puppet module was built as a proof-of-concept, by Unixerius in
+# association with Fox Technologies (http://www.foxt.com).
+#
+# The module will install a BoKS client system and it will configure
+# certain key files. Finally it'll ensure that the daemons get started 
+# and that BoKS is enabled. 
 #
 # Parameters
 # ----------
 #
 # Document parameters here.
 #
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
+# * < none yet >
+# I still need to expand upon the functionality of this module.
 #
 # Variables
 # ----------
 #
 # Here you should define a list of variables that this module would require.
 #
-# * `sample variable`
-#  Explanation of how this variable affects the function of this class and if
-#  it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#  External Node Classifier as a comma separated list of hostnames." (Note,
-#  global variables should be avoided in favor of class parameters as
-#  of Puppet 2.6.)
+# * < none yet >
+# I still need to expand upon the functionality of this module.
 #
 # Examples
 # --------
 #
-# @example
-#    class { 'boks':
-#      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#    }
+# * < none yet >
+# I still need to expand upon the functionality of this module.
 #
 # Authors
 # -------
 #
-# Author Name <author@domain.com>
+# Thomas Sluyter <thomas.sluyter@unixerius.nl>
 #
 # Copyright
 # ---------
 #
-# Copyright 2016 Your name here, unless otherwise noted.
+# Copyright 2016 Thomas Sluyter, Unixerius
 #
-class boks {
 
-
+class boks () inherits boks::params {
+  class{'boks::install': } ->
+  class{'boks::config': } ->
+  class{'boks::service': } ->
+  Class["boks"]
 }
+
