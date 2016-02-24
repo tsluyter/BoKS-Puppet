@@ -14,70 +14,63 @@
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what
-problem it solves. This is your 30-second elevator pitch for your module.
-Consider including OS/Puppet version it works with.
+This module installs a working BoKS-client system. The BoKS software is installed
+through an RPM, it is configured and then automatically ran. 
 
-You can give more descriptive information in a second paragraph. This paragraph
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?" If your module has a range of functionality (installation, configuration,
-management, etc.), this is the time to mention it.
+Initially this module will only work with RedHat derivatives, but later on it will
+be expanded to included other guest OSes as well. Also, over the course of development 
+the module will become more refined and will start using matters such as Hiera.
 
 ## Setup
 
 ### What boks affects **OPTIONAL**
 
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
+This module is specific to Fox Technologies (http://www.foxt.com) product called
+BoKS: "Behorighet- och KontrollSystem", or "Legitimacy and control system". BoKS
+is an RBAC-tool which controls who can do what, where and how. It's compatible 
+with many Unixen as well as Windows. 
 
-If there's more that they should know about, though, this is the place to mention:
+For more details -> https://en.wikipedia.org/wiki/FoxT_ServerControl
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
+* Currently uses boks-client-7.0-1.el6.x86_64.rpm
+* Configured $BOKS_etc/bcastaddr
+* Enables and runs /etc/init.d/boksm
 
 ### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section
-here.
+Nothing in particular.
 
 ### Beginning with boks
 
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
+For starters, you will need to have a functioning BoKS RPM package. FoxT 
+does not yet provide this, so you'll have to bake one yourself. Instructions
+on how to do this properly will follow soon.
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the
-fancy stuff with your module here. It's especially helpful if you include usage
-examples and code samples for doing things with your module.
+For now all modifications that you'd like to do can be made in both the files 
+section and in params.pp.
 
 ## Reference
 
-Here, include a complete list of your module's classes, types, providers,
-facts, along with the parameters for each. Users refer to this section (thus
-the name "Reference") to find specific details; most users don't read it per
-se.
+* boks()
+* boks::install()
+* boks::config()
+* boks::service()
+
+Right now it's a straight-forward client installation. Later on we may expand
+into the territory of replicas and masters as well. That should be easily doable.
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there
-are Known Issues, you might want to include them under their own heading here.
+Due to the lack of proper BoKS packages this module is currently limited to
+RedHat 6 derivatives.
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
+At this time I'm still doing the groundwork for the module. Once I've come to 
+a more feature-complete set I will open up the module for participation.
 
 ## Release Notes/Contributors/Etc. **Optional**
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You can also add any additional sections you feel
-are necessary or important to include here. Please use the `## ` header.
+Initial release with a working, basic module (24/02/2016).
