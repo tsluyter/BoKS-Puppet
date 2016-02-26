@@ -5,7 +5,10 @@ class boks::service inherits boks {
       ensure => $service_ensure,
       enable => $service_enable,
       subscribe => [ File["${bcastaddr_file}"],
-                     File["${nodekey_file}"] ]
+                     File["${nodekey_file}"],
+                     File["${env_file}"] ],
+      require => [ Package["${package_name}"],
+                   File["${nodekey_file}"] ],
     }
   }
 }

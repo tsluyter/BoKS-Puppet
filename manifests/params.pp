@@ -14,6 +14,7 @@ class boks::params {
   $boks_bin          = "${boks_opt}/bin"
   $boks_sbin         = "${boks_opt}/sbin"
   $boks_lib          = "${boks_opt}/lib"
+  $env_file          = "${boks_etc}/ENV"
   $nodekey_file      = "${boks_etc}/nodekey"
   $bcastaddr_file    = "${boks_etc}/bcastaddr"
   $boks_master       = '10.211.55.60'

@@ -1,0 +1,32 @@
+#
+# Add your custom file monitoring configuration here.
+# This version was started by Puppet!
+#
+
+config
+{
+  runhours        22-06
+  slowdown        10
+  filesystems     nfs
+}
+
+global
+{
+  core            EXCLUDE
+  *.log           LOG
+  *.txt           perm,uid,gid,hash
+}
+
+monitor-tree    /usr    LOG,hash
+{
+  local           STOP
+  lib
+  lib/libc.*      EXCLUDE
+  bin             ALL,-noupdate
+}
+
+monitor-dir    /var/log            LOG,okmissing
+monitor-dir    /etc/init.d         LOG,okmissing
+monitor-dir    /etc/sudoers.d      LOG,okmissing
+monitor-file   /etc/resolv.conf    ALL
+
