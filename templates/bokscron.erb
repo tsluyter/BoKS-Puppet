@@ -1,0 +1,10 @@
+# Configuration file for boks_cron
+# For BoKS internal use only. Entries will run
+# in a BoKS specific environment which may break
+# non-BoKS jobs.
+#
+5  0 * * *  $BOKS_lib/boks_errlog_check
+5  0 * * *  $BOKS_lib/kslog_check_active_sessions
+10 0 * * *  $BOKS_lib/kslog_stalefile_check
+15 * * * *  $BOKS_lib/rbaclog_check
+30 0 * * *  $BOKS_sbin/bokslicense -E
