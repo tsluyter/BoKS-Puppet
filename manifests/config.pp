@@ -26,4 +26,11 @@ class boks::config inherits boks {
    require => Package["${package_name}"],
   }
 
+  file { $prereg_secret:
+   ensure => file,
+   owner  => 0,
+   group  => 0,
+   mode   => '0400',
+   source => "puppet:///modules/boks/prereg-secret",
+  }
 }

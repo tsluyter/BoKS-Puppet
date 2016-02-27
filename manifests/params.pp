@@ -19,5 +19,7 @@ class boks::params {
   $bcastaddr_file    = "${boks_etc}/bcastaddr"
   $boks_master       = '10.211.55.60'
   $boks_replicas     = ['10.211.55.61', '10.211.56.61']
+  $boks_puppet       = "${boks_lib}/bokspup"
+  $prereg_secret     = "${boks_etc}/prereg-secret"
 }
 
