@@ -73,4 +73,5 @@ a more feature-complete set I will open up the module for participation.
 
 ## Release Notes/Contributors/Etc. **Optional**
 
-Initial release with a working, basic module (24/02/2016).
+* Initial release with a working, basic module (24/02/2016).
+* Release 0.2 adds multiple settings from $BOKS_etc/ENV and managing the BoKS SSHD (27/02/2016).
