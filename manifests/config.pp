@@ -7,7 +7,6 @@ class boks::config inherits boks {
    group    => 0,
    mode     => '0644',
    source   => "puppet:///modules/boks/bcastaddr",
-   require  => Package["${package_name}"],
   }
 
   file { $nodekey_file:
@@ -15,7 +14,6 @@ class boks::config inherits boks {
    owner   => 0,
    group   => 0,
    mode    => '0600',
-   require => Package["${package_name}"],
   }
 
   file { $env_file:
@@ -23,14 +21,6 @@ class boks::config inherits boks {
    owner   => 0,
    group   => 0,
    mode    => '0644',
-   require => Package["${package_name}"],
   }
 
-  file { $prereg_secret:
-   ensure => file,
-   owner  => 0,
-   group  => 0,
-   mode   => '0400',
-   source => "puppet:///modules/boks/prereg-secret",
-  }
 }

@@ -46,7 +46,7 @@ class boks () inherits boks::params {
   class{'boks::install': } ->
   class{'boks::config': } ->
   class{'boks::service': } ->
-#class{'boks::rootaccount': } ->
+  class{'boks::rootaccount': } ->
   Class["boks"]
 }
 

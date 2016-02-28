@@ -11,12 +11,17 @@ inherits boks::params {
     source  => "puppet:///modules/boks/bokspup",
   }
 
-  file { $prereg_secret:
+  file { $prereg_secretfile:
     ensure  => file,
     owner   => 0,
     group   => 0,
     mode    => '0400',
-    source  => "puppet:///modules/boks/prereg-secret",
   }
 
+  file_line { "master_prereg_secret":
+    ensure  => 'present',   
+    path    => "${prereg_secretfile}",
+    line    => "${prereg_secret}",
+    require => File["${prereg_secretfile}"],
+    }
 }
