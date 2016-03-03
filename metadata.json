@@ -1,6 +1,6 @@
 {
   "name": "unixerius-boks",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "author": "Thomas Sluyter",
   "summary": "It installs and configures Fox Technologies BoKS Access Control.",
   "license": "GPLv3",

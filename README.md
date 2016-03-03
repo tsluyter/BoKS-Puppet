@@ -32,10 +32,6 @@ with many Unixen as well as Windows.
 
 For more details -> https://en.wikipedia.org/wiki/FoxT_ServerControl
 
-* Currently uses boks-client-7.0-1.el6.x86_64.rpm
-* Configured $BOKS_etc/bcastaddr
-* Enables and runs /etc/init.d/boksm
-
 ### Setup Requirements **OPTIONAL**
 
 Nothing in particular.
@@ -48,8 +44,34 @@ on how to do this properly will follow soon.
 
 ## Usage
 
-For now all modifications that you'd like to do can be made in both the files 
-section and in params.pp.
+As of release 0.3 there are three places where BoKS administrators can and should
+adjust their configuration.
+
+* The files directory, where the shared secret for pre-registration and the bcastaddr reside.
+* The templates directory, where filmon and bokscron configuration files reside.
+* The params.pp class, where you define default settings and more.
+* The site.pp (or other node classification source), where you can deviate from defaults. 
+
+An example from my testbed, for the site.pp:
+
+node 'client2.broehaha.nl' {
+  include boks
+  include ssh
+  class { 'boks::boks_sshd' : boks_sshd_set_to => 'off', }
+  class { 'boks::filmon' : filmon_set_to       => 'off',
+                           filmon_runhours     => '23-05',
+                           filmon_filesystems  => '', }
+  class { 'boks::bksd' : bksd_set_to      => 'on',
+                         bksd_timeout     => 'on',
+                         bksd_sleep       => '30', }
+  class { 'boks::bokscron' : bokscron_set_to      => 'on', }
+}
+
+node 'master.broehaha.nl' {
+    class { 'boks::master_config' : }
+    class { 'boks::master_actions' : }
+}
+
 
 ## Reference
 
@@ -68,10 +90,13 @@ RedHat 6 derivatives.
 
 ## Development
 
-At this time I'm still doing the groundwork for the module. Once I've come to 
-a more feature-complete set I will open up the module for participation.
+The groundwork for this module was laid by Thomas Sluyter. Upon release 0.3 the module's
+development was opened up for participation to the BoKS-community at large. A project backlog
+in Jira will be made available shortly on a Unixerius server. 
 
 ## Release Notes/Contributors/Etc. **Optional**
 
 * Initial release with a working, basic module (24/02/2016).
 * Release 0.2 adds multiple settings from $BOKS_etc/ENV and managing the BoKS SSHD (27/02/2016).
+* Release 0.3 added host pre-registration, auto-registration and the addition of root accounts (03/03/2016).
+
