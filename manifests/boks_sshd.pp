@@ -5,10 +5,13 @@
 # But we can honestly NOT do that over here in this sub-class! 
 # This must be specified in the host's definition.
 #
+# BoKS SSHD defaults to OFF, because it may collide with a vanilla
+# SSH daemon which is bound to be installed.
+#
 
 class boks::boks_sshd
 (
-$boks_sshd_set_to = 'on'
+$boks_sshd_set_to = 'off'
 )
 
 inherits boks
