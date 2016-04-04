@@ -12,7 +12,7 @@ inherits boks
   file_line { 'bokscron':
     ensure  => 'present',
     path    => "${env_file}",
-    line    => "BOKSCRON=${filmon_set_to}",
+    line    => "BOKSCRON=${bokscron_set_to}",
     match   => '^BOKSCRON\=',
     require => Package["${package_name}"],
     notify  => Service["boksm"],
