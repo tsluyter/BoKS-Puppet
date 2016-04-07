@@ -49,7 +49,7 @@ inherits boks
   file_line { "filmon_filesystems":
     ensure  => 'present',
     path    => "${boks_etc}/filmon.conf",
-    line    => "filesystems ${filmon_run_hours}",
+    line    => "filesystems ${filmon_runhours}",
     match   => 'filesystems ',
     require => File["${boks_etc}/filmon.conf"],
   }
