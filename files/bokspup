@@ -117,19 +117,20 @@ fi
 
 
 root() {
-[[ ${DEBUG} -gt 0 ]] && logger DEBUG "Starting function root." 
+[[ ${DEBUG} -gt 0 ]] && logger DEBUG "Starting function root."
 [[ -z ${HOSTNAME} ]] && (logger ERROR "No hostname specified for ${PROGNAME}, mode ${MODE}."; exit 1)
 
 if [[ ${ACTION} == "a" ]]
 then
 	# Adding a root account.
-	mkbks -l ${HOSTNAME}:root -u 0 -g 0 -h "${ROOTHOME}" -r "Superuser from BoKS-Puppet" -s "${ROOTSHELL}" -P "${ROOTUSERCLASS}" >/dev/null 2>&1
+  PASSHASH=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c10 | openssl passwd -1 -stdin)
+	mkbks -l ${HOSTNAME}:root -u 0 -g 0 -p ${PASSHASH} -h "${ROOTHOME}" -r "Superuser from BoKS-Puppet" -s "${ROOTSHELL}" -P "${ROOTUSERCLASS}" >/dev/null 2>&1
 	if [[ $? -gt 0 ]]; then logger ERROR "Could not create root account for ${HOSTNAME}."; exit 1; fi
 	ttyadmin -a -l ${HOSTNAME}:root -z "login:*->${HOSTNAME}" >/dev/null 2>&1
 	if [[ $? -gt 0 ]]; then logger ERROR "Could not create access route for root at ${HOSTNAME}."; exit 1; fi
 	exit 0
 elif [[ ${ACTION} == "l" ]]
-then	
+then
 	# Verifying a root account.
 	[[ -z $(lsbks -l ${HOSTNAME}:root) ]] && exit 1 || exit 0
 else

@@ -5,7 +5,9 @@
 include boks
 include ssh
 
-class { 'boks::boks_sshd' : boks_sshd_set_to => 'off', }
+class { 'boks::pswupdate' : boks_pswupdate_set_to => 'off', }
+
+class { 'boks::boks_sshd' : boks_sshd_set_to        => 'off', }
 
 class { 'boks::filmon' : filmon_set_to       => 'off',
                          filmon_runhours     => '23-05',

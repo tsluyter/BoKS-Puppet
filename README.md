@@ -15,15 +15,18 @@
 ## Description
 
 This module installs a working BoKS-client system. The BoKS software is installed
-through an RPM, it is configured and then automatically ran. 
+through an RPM, it is configured and then automatically ran. It also ensures that a
+BoKS root account and host record are generated for the newly installed host, with
+a random, ten character password for root. This password is unknown and can be safely
+changed through BoKS by the security administrators.
 
 Initially this module will only work with RedHat derivatives, but later on it will
-be expanded to included other guest OSes as well. Also, over the course of development 
+be expanded to included other guest OSes as well. Also, over the course of development
 the module will become more refined and will start using matters such as Hiera.
 
 ## Setup
 
-### What boks affects **OPTIONAL**
+### What boks affects 
 
 This module is specific to Fox Technologies (http://www.foxt.com) product called
 BoKS: "Behorighet- och KontrollSystem", or "Legitimacy and control system". BoKS
@@ -32,7 +35,7 @@ with many Unixen as well as Windows.
 
 For more details -> https://en.wikipedia.org/wiki/FoxT_ServerControl
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements 
 
 Nothing in particular.
 
@@ -44,8 +47,8 @@ on how to do this properly will follow soon.
 
 ## Usage
 
-As of release 0.3 there are three places where BoKS administrators can and should
-adjust their configuration.
+As of release 0.3 there are four places where BoKS administrators can and should
+adjust their configuration. I realize that's sub-optimal; we'll improve it later.
 
 * The files directory, where the shared secret for pre-registration and the bcastaddr reside.
 * The templates directory, where filmon and bokscron configuration files reside.
@@ -75,18 +78,13 @@ node 'master.broehaha.nl' {
 
 ## Reference
 
-* boks()
-* boks::install()
-* boks::config()
-* boks::service()
-
-Right now it's a straight-forward client installation. Later on we may expand
-into the territory of replicas and masters as well. That should be easily doable.
+Right now the BoKS Puppet module still requires a bit of work. Installation of a client is simple enough, and then you can add additional calls to configure beyond the default settings. Refer to the examples directory for more information.
 
 ## Limitations
 
 Due to the lack of proper BoKS packages this module is currently limited to
-RedHat 6 derivatives.
+RedHat 6 derivatives. It requires that you build your own RPM and adjust the module's
+parameters file accordingly.
 
 ## Development
 
@@ -94,9 +92,10 @@ The groundwork for this module was laid by Thomas Sluyter. Upon release 0.3 the 
 development was opened up for participation to the BoKS-community at large. A project backlog
 in Jira will be made available shortly on a Unixerius server. 
 
-## Release Notes/Contributors/Etc. **Optional**
+## Release Notes/Contributors/Etc.
 
 * Initial release with a working, basic module (24/02/2016).
 * Release 0.2 adds multiple settings from $BOKS_etc/ENV and managing the BoKS SSHD (27/02/2016).
 * Release 0.3 added host pre-registration, auto-registration and the addition of root accounts (03/03/2016).
+* Release 0.4 added randomized passwords for the root accounts as well as toggling of sysreplace status ((06/04/2016).
 
