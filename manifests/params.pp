@@ -1,7 +1,7 @@
 
 class boks::params {
   $package_ensure    = 'installed'
-  $package_name      = 'boks-client-7.0-1.el6.x86_64'
+  $package_name      = 'boks-client-7.0-2.el6.x86_64'
   $package_file      = "${package_name}.rpm"
   $rpm_source        = 'http://10.211.55.43/packages'
   $service_enable    = 'true'
