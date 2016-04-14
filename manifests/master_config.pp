@@ -1,7 +1,11 @@
-#
+# Class to setup basic configuration of the BoKS master, including the 
+# shared secret for host pre-registration. This used to live in params.pp
+# but has moved to Hiera.
 
 class boks::master_config ()
 inherits boks::params {
+  # Data lookups
+  $sharedsecret = hiera('boks::sharedsecret')
 
   file { $boks_puppet:
     ensure  => file,
@@ -16,12 +20,7 @@ inherits boks::params {
     owner   => 0,
     group   => 0,
     mode    => '0400',
+    content => template("boks/prereg-secret-master.erb"),
   }
 
-  file_line { "master_prereg_secret":
-    ensure  => 'present',   
-    path    => "${prereg_secretfile}",
-    line    => "${prereg_secret}",
-    require => File["${prereg_secretfile}"],
-    }
 }

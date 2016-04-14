@@ -1,5 +1,11 @@
+# Class to install the RPM and to setup the shared secret for host
+# pre-registration. Originally the shared secret was stored in params.pp
+# but we're moving it to Hiera.
 
 class boks::install inherits boks {
+  # Data lookups
+  $sharedsecret = hiera('boks::sharedsecret')
+
   package { "${package_name}":
     ensure   => $package_ensure,
     provider => 'rpm',
@@ -7,18 +13,11 @@ class boks::install inherits boks {
   }
 
   file { $prereg_secretfile:
-    ensure => file,
-    owner  => 0,
-    group  => 0,
-    mode   => '0400',
-  }
-
-  file_line { "client_prereg_secret":
-    ensure  => 'present',
-    path    => "${prereg_secretfile}",
-    line    => "SECRET=${prereg_secret}",
-    match   => 'SECRET=',
-    require => File["${prereg_secretfile}"],
+    ensure  => file,
+    owner   => 0,
+    group   => 0,
+    mode    => '0400',
+    content => template("boks/prereg-secret-client.erb"),
   }
 
   file { $boks_cacert:
