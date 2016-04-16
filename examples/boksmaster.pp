@@ -11,7 +11,6 @@ class profile::boksmaster {
   # Data lookups
 
   # Basic setup
-  class { 'boks::master_config' : }
   class { 'boks::master_actions' : }
 }
 

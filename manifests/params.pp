@@ -17,11 +17,5 @@ class boks::params {
   $env_file          = "${boks_etc}/ENV"
   $nodekey_file      = "${boks_etc}/nodekey"
   $bcastaddr_file    = "${boks_etc}/bcastaddr"
-  $boks_master       = '10.211.55.60'
-  $boks_replicas     = ['10.211.55.61', '10.211.56.61']
-  $boks_puppet       = "${boks_lib}/bokspup"
-  $prereg_secret     = "ks93@WFwiwnal3h101na"
-  $prereg_secretfile = "${boks_etc}/prereg-secret"
-  $boks_cacert       = "${boks_etc}/master.broehaha.nl-ca.pem"
 }
 
