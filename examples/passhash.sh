@@ -5,5 +5,6 @@
 
 echo -e "Enter password: \c"
 read PASS
-PASSHASH=$(echo $PASS | openssl passwd -1 -stdin)
+#PASSHASH=$(echo $PASS | openssl passwd -1 -stdin)
+PASSHASH=$(perl -e 'print crypt("$PASS", "salt"),"\n"')
 echo $PASSHASH
