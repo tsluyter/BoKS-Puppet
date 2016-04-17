@@ -1,0 +1,9 @@
+---
+boks::sharedsecret: "ks93@WFwiwnal3h101na"
+boks::bcastaddr:
+    - 10.211.55.61
+    - 10.211.55.62
+    - 10.211.55.60
+boks::roothome: "/root"
+boks::rootshell: "/bin/bash"
+boks::rootuserclass: "GenericUser"

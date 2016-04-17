@@ -42,7 +42,6 @@
 #
 
 class boks () inherits boks::params {
-  class{'boks::hostpreregistration': } ->
   class{'boks::install': } ->
   class{'boks::config': } ->
   class{'boks::service': } ->

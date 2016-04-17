@@ -86,6 +86,8 @@ Due to the lack of proper BoKS packages this module is currently limited to
 RedHat 6 derivatives. It requires that you build your own RPM and adjust the module's
 parameters file accordingly.
 
+One known issue is that the module currently does not handle software upgrades or reinstallations gracefully. Host pre-registration is irrevocably linked to the installation of the software. If you were to reinstall or upgrade through the module, it would fail in the following steps, as pre-registration hasn't finished. I need to make a work-around for that. 
+
 ## Development
 
 The groundwork for this module was laid by Thomas Sluyter. Upon release 0.3 the module's
