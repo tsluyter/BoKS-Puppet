@@ -1,4 +1,9 @@
 #
+# BoKS has its own scheduling daemon, to run a number of internal tasks.
+# By default this daemon is supposed to be on, but in some edge-cases 
+# you might want to disable it. You can do so from a node's profile or
+# definition. 
+#
 
 class boks::bokscron
 (

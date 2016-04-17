@@ -1,4 +1,9 @@
 #
+# Aside from its run-state (on or off), BoKS also has two protection
+# states: enabled or disabled. When BoKS is disabled, it will not perform
+# any access control; it will only log and monitor. Only when BoKS is
+# enabled, will it perform access control. By default it gets enabled.
+#
 
 class boks::sysreplace
 (

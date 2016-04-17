@@ -1,6 +1,6 @@
 {
   "name": "unixerius-boks",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Thomas Sluyter",
   "summary": "It installs and configures Fox Technologies BoKS Access Control.",
   "license": "GPLv3",
@@ -9,6 +9,7 @@
   "issues_url": "https://github.com/tsluyter/BoKS-Puppet/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    {"name":"saz-ssh","version_requirement":">= 2.8.1"}
   ],
   "data_provider": null
 }

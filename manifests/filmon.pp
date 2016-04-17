@@ -1,8 +1,16 @@
 #
+# BoKS has its own file monitoring mechanism on board, kind of
+# like the classic Tripwire. By default filmon is turned off
+# as it may be an unwanted stress on your system. If you so 
+# desire, you may turn it on and configure it.
+#
+# The required configuration file is in the templates directory
+# and may be further tuned to your liking.
+#
 
 class boks::filmon
 (
-$filmon_set_to = 'on',
+$filmon_set_to = 'off',
 $filmon_runhours = '22-06',
 $filmon_slowdown = '10',
 $filmon_filesystems = '',

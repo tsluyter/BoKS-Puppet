@@ -1,4 +1,9 @@
 #
+# By default, BoKS will automatically create and remove user accounts
+# in the local /etc/passwd, shadow and groups. In some edge-cases you
+# might not want this, so I've given you the option to disable this
+# mechanism.
+#
 
 class boks::pswupdate
 (

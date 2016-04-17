@@ -1,4 +1,9 @@
 #
+# This class is used on a BoKS client, to pull the required per-host
+# configuration from Hiera. It then generates an exported resource,
+# which will be collected by the BoKS master server, to create the 
+# root account. 
+#
 
 class boks::rootaccount ()
 inherits boks {

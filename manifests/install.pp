@@ -1,5 +1,7 @@
+#
 # Class to install the RPM and to generate the host record on the BoKS
 # master server's side.
+#
 
 class boks::install inherits boks {
 

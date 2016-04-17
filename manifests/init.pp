@@ -24,22 +24,13 @@
 # * < none yet >
 # I still need to expand upon the functionality of this module.
 #
-# Examples
-# --------
-#
-# * < none yet >
-# I still need to expand upon the functionality of this module.
-#
-# Authors
-# -------
-#
-# Thomas Sluyter <thomas.sluyter@unixerius.nl>
-#
-# Copyright
-# ---------
-#
-# Copyright 2016 Thomas Sluyter, Unixerius
-#
+# The init class of the BoKS module is used to perform the basic
+# installation of a BoKS client host. Software is installed, the 
+# client is configured, the service is set to automatically run. 
+# Aside from that exported resources are generated which will be 
+# run on the BoKS master server, to create host records, node keys
+# and root accounts.
+# 
 
 class boks () inherits boks::params {
   class{'boks::install': } ->
