@@ -2,5 +2,5 @@
 
 echo -e "Enter password: \c"
 read PASS
-PASSHASH=$(echo $PASS | tr -dc A-Za-z0-9 | head -c10 | openssl passwd -1 -stdin)
+PASSHASH=$(echo $PASS | openssl passwd -1 -stdin)
 echo $PASSHASH
