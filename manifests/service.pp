@@ -1,3 +1,8 @@
+#
+# Do you want to automatically start BoKS at each server boot?
+# Of course you do! But if you didn't, you can disable it with
+# this class.
+#
 
 class boks::service inherits boks {
   if $service_manage == "true" {

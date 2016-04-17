@@ -1,3 +1,9 @@
+#
+# Basic setup of a number of variables. Most importantly the 
+# RPM package name and installation source. If you would like 
+# to use a YUM server to install the RPM, you will need to tweak
+# the BoKS module a bit.
+#
 
 class boks::params {
   $package_ensure    = 'installed'

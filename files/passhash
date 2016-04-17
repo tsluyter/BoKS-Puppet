@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo -e "Enter password: \c"
-read PASS
-PASSHASH=$(echo $PASS | openssl passwd -1 -stdin)
-echo $PASSHASH

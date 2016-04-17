@@ -1,4 +1,10 @@
 #
+# This subclass can be used to manage the BoKS timeout daemon.
+# Basically, if this daemon is enabled, it will automatically disconnect
+# users who are logged in, but whose session has gone idle. Below
+# you will find some default values, which may be override in your
+# node's profile or definition.
+#
 
 class boks::bksd
 (
