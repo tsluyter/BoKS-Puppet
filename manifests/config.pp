@@ -22,7 +22,7 @@ class boks::config inherits boks {
   $nodekey = hiera('boks::nodekey')
   $nodekeycheck = hiera('boks::nodekeycheck')
 
-  file { ${bcastaddr_file}:
+  file { $bcastaddr_file:
    ensure  => file,
    owner   => 0,
    group   => 0,
@@ -30,7 +30,7 @@ class boks::config inherits boks {
    content => template('boks/bcastaddr.erb'),
   }
 
-  file { ${nodekey_file}:
+  file { $nodekey_file:
    ensure  => file,
    owner   => 0,
    group   => 0,
@@ -48,7 +48,7 @@ class boks::config inherits boks {
     tag     => 'nodekey',
   }
 
-  file { ${env_file}:
+  file { $env_file:
    ensure  => file,
    owner   => 0,
    group   => 0,
