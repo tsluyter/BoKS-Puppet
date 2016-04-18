@@ -57,6 +57,7 @@ adjust their configuration. I realize that's sub-optimal; we'll improve it later
 
 An example from my testbed, for the site.pp:
 
+```puppet
 node 'client2.broehaha.nl' {
   include boks
   include ssh
@@ -74,7 +75,7 @@ node 'master.broehaha.nl' {
     class { 'boks::master_config' : }
     class { 'boks::master_actions' : }
 }
-
+```
 
 ## Reference
 
