@@ -20,7 +20,7 @@ inherits boks
     line    => "BOKSCRON=${bokscron_set_to}",
     match   => '^BOKSCRON\=',
     require => Package["${package_name}"],
-    notify  => Service["boksm"],
+    notify  => Service['boksm'],
   }
 
   file { "${boks_etc}/bokscron.conf":
@@ -29,6 +29,6 @@ inherits boks
     group    => 0,
     mode     => '0644',
     require  => Package["${package_name}"],
-    content  => template("boks/bokscron.erb"),
+    content  => template('boks/bokscron.erb'),
   }
 }

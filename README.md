@@ -99,5 +99,6 @@ in Jira will be made available shortly on a Unixerius server.
 * Initial release with a working, basic module (24/02/2016).
 * Release 0.2 adds multiple settings from $BOKS_etc/ENV and managing the BoKS SSHD (27/02/2016).
 * Release 0.3 added host pre-registration, auto-registration and the addition of root accounts (03/03/2016).
-* Release 0.4 added randomized passwords for the root accounts as well as toggling of sysreplace status ((06/04/2016).
+* Release 0.4 added randomized passwords for the root accounts as well as toggling of sysreplace status (06/04/2016). It also refactored the module to pull most per-node information from Hiera.
+* Release 0.4.1 prepared the module for publication on the Puppet Forge and did a few small bugfixes. (18/04/2016).
 

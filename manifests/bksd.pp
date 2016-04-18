@@ -22,7 +22,7 @@ inherits boks
     line    => "BKSD=${bksd_set_to}",
     match   => '^BKSD\=',
     require => Package["${package_name}"],
-    notify  => Service["boksm"],
+    notify  => Service['boksm'],
   }
 
   file_line { 'bksd_timeout':
@@ -31,7 +31,7 @@ inherits boks
     line    => "BKSD_TIMEOUT=${bksd_timeout}",
     match   => '^BKSD_TIMEOUT\=',
     require => Package["${package_name}"],
-    notify  => Service["boksm"],
+    notify  => Service['boksm'],
   }
 
   file_line { 'bksd_sleep':
@@ -40,7 +40,7 @@ inherits boks
     line    => "BKSD_SLEEP=${bksd_sleep}",
     match   => '^BKSD_SLEEP\=',
     require => Package["${package_name}"],
-    notify  => Service["boksm"],
+    notify  => Service['boksm'],
   }
 
 }

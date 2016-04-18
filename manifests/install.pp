@@ -14,7 +14,7 @@ class boks::install inherits boks {
   @@exec { "hostrecord_for_${::hostname}":
     command => "${boks_sbin}/hostadm -a -h ${::fqdn} -i ${::ipaddress} -t UNIXBOKSHOST",
     unless  => "${boks_sbin}/hostadm -Slh ${::fqdn} | /bin/grep ${::fqdn}",
-    tag     => "hostrecord",
+    tag     => 'hostrecord',
   }
 
 }

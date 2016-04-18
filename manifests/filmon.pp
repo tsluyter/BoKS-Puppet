@@ -26,7 +26,7 @@ inherits boks
     line    => "FILMON=${filmon_set_to}",
     match   => '^FILMON\=',
     require => Package["${package_name}"],
-    notify  => Service["boksm"],
+    notify  => Service['boksm'],
   }
 
   file { "${boks_etc}/filmon.conf":
@@ -35,10 +35,10 @@ inherits boks
     group    => 0,
     mode     => '0644',
     require  => Package["${package_name}"],
-    content  => template("boks/filmon.erb"),
+    content  => template('boks/filmon.erb'),
   }
 
-  file_line { "filmon_runhours":
+  file_line { 'filmon_runhours':
     ensure  => 'present',
     path    => "${boks_etc}/filmon.conf",
     line    => "runhours ${filmon_runhours}",
@@ -46,7 +46,7 @@ inherits boks
     require => File["${boks_etc}/filmon.conf"],
   }
 
-  file_line { "filmon_slowdown":
+  file_line { 'filmon_slowdown':
     ensure  => 'present',
     path    => "${boks_etc}/filmon.conf",
     line    => "slowdown ${filmon_slowdown}",
@@ -54,7 +54,7 @@ inherits boks
     require => File["${boks_etc}/filmon.conf"],
   }
 
-  file_line { "filmon_filesystems":
+  file_line { 'filmon_filesystems':
     ensure  => 'present',
     path    => "${boks_etc}/filmon.conf",
     line    => "filesystems ${filmon_runhours}",

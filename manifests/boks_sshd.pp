@@ -24,7 +24,7 @@ inherits boks
     line    => "BOKS_SSHD=${boks_sshd_set_to}",
     match   => '^BOKS_SSHD\=',
     require => Package["${package_name}"],
-    notify  => Service["boksm"],
+    notify  => Service['boksm'],
   }
 
 }
