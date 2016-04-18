@@ -6,8 +6,7 @@
 # should be managed.
 #
 
-class boks::master_actions () 
-inherits boks::params {
+class boks::master_actions () {
   Exec <<|tag=='hostrecord' |>> ->
   Exec <<|tag=='nodekey' |>> ->
   Exec <<|tag=='rootaccount' |>> ->

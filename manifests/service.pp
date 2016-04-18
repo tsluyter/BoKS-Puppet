@@ -5,15 +5,15 @@
 #
 
 class boks::service inherits boks {
-  if $service_manage == true {
-    service { "${service_name}":
-      ensure    => $service_ensure,
-      enable    => $service_enable,
-      subscribe => [ File["${bcastaddr_file}"],
-                      File["${nodekey_file}"],
-                      File["${env_file}"] ],
-      require   => [ Package["${package_name}"],
-                      File["${nodekey_file}"] ],
+  if $boks::params::service_manage == true {
+    service { $boks::params::service_name:
+      ensure    => $boks::params::service_ensure,
+      enable    => $boks::params::service_enable,
+      subscribe => [ File[$boks::params::bcastaddr_file],
+                      File[$boks::params::nodekey_file],
+                      File[$boks::params::env_file] ],
+      require   => [ Package[$boks::params::package_name],
+                      File[$boks::params::nodekey_file] ],
     }
   }
 }

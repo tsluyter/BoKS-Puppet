@@ -20,10 +20,10 @@ inherits boks
 
   file_line { 'boks_sshd':
     ensure  => 'present',
-    path    => "${env_file}",
+    path    => $boks::params::env_file,
     line    => "BOKS_SSHD=${boks_sshd_set_to}",
     match   => '^BOKS_SSHD\=',
-    require => Package["${package_name}"],
+    require => Package[$boks::params::package_name],
     notify  => Service['boksm'],
   }
 

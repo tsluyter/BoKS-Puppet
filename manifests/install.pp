@@ -5,15 +5,15 @@
 
 class boks::install inherits boks {
 
-  package { "${package_name}":
-    ensure   => $package_ensure,
+  package { $boks::params::package_name:
+    ensure   => $boks::params::package_ensure,
     provider => 'rpm',
-    source   => "${rpm_source}/${package_file}"
+    source   => "${boks::params::rpm_source}/${boks::params::package_file}"
   }
 
   @@exec { "hostrecord_for_${::hostname}":
-    command => "${boks_sbin}/hostadm -a -h ${::fqdn} -i ${::ipaddress} -t UNIXBOKSHOST",
-    unless  => "${boks_sbin}/hostadm -Slh ${::fqdn} | /bin/grep ${::fqdn}",
+    command => "${boks::params::boks_sbin}/hostadm -a -h ${::fqdn} -i ${::ipaddress} -t UNIXBOKSHOST",
+    unless  => "${boks::params::boks_sbin}/hostadm -Slh ${::fqdn} | /bin/grep ${::fqdn}",
     tag     => 'hostrecord',
   }
 

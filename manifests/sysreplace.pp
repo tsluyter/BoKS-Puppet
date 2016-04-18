@@ -16,16 +16,16 @@ inherits boks
 
   if $sysreplace_set_to == 'on' {
     exec { 'sysreplace_on':
-      command => "${boks_lib}/sysreplace replace",
-      unless  => "/bin/grep -i \"SSM_ACTIVE=true\" $env_file",
-      require => Package["${package_name}"],
+      command => "${boks::params::boks_lib}/sysreplace replace",
+      unless  => "/bin/grep -i \"SSM_ACTIVE=true\" ${boks::params::env_file}",
+      require => Package[$boks::params::package_name],
     }
   }
   else {
     exec { 'sysreplace_off':
-      command => "${boks_lib}/sysreplace restore",
-      onlyif  => "/bin/grep -i \"SSM_ACTIVE=true\" $env_file",
-      require => Package["${package_name}"],
+      command => "${boks::params::boks_lib}/sysreplace restore",
+      onlyif  => "/bin/grep -i \"SSM_ACTIVE=true\" ${boks::params::env_file}",
+      require => Package[$boks::params::package_name],
     }
   }
 
