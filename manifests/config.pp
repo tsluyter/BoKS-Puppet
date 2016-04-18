@@ -18,9 +18,9 @@
 
 class boks::config inherits boks {
   # Fetching data
-  $bcastaddr = hiera('boks::bcastaddr')
-  $nodekey = hiera('boks::nodekey')
-  $nodekeycheck = hiera('boks::nodekeycheck')
+  $bcastaddr = hiera('boks::bcastaddr', $boks::params::bcastaddr)
+  $nodekey = hiera('boks::nodekey', $boks::params::nodekey)
+  $nodekeycheck = hiera('boks::nodekeycheck', $boks::params::nodekeycheck)
 
   file { $boks::params::bcastaddr_file:
     ensure  => file,

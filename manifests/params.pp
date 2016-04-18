@@ -23,5 +23,14 @@ class boks::params {
   $env_file          = "${boks_etc}/ENV"
   $nodekey_file      = "${boks_etc}/nodekey"
   $bcastaddr_file    = "${boks_etc}/bcastaddr"
+
+  # The following should NEVER be used, but are here for smoke tests.
+  $roothome = "/root"
+  $rootshell = "/bin/bash"
+  $rootuserclass = "GenericUser"
+  $rootpasshash = "saFLGt/QKS6yw"
+  $bcastaddr = "192.168.0.1"
+  $nodekey = "secret"
+  $nodekeycheck = "aWEs/"
 }
 

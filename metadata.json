@@ -1,6 +1,6 @@
 {
   "name": "tsluyter-boks",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": "Thomas Sluyter",
   "summary": "It installs and configures Fox Technologies BoKS Access Control.",
   "license": "GPL-3.0",

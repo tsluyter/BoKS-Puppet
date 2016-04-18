@@ -102,4 +102,5 @@ in Jira will be made available shortly on a Unixerius server.
 * Release 0.4 added randomized passwords for the root accounts as well as toggling of sysreplace status (06/04/2016). It also refactored the module to pull most per-node information from Hiera.
 * Release 0.4.1 prepared the module for publication on the Puppet Forge and did a few small bugfixes. (18/04/2016).
 * Release 0.4.2 was a stupid bugfix because I had forgotten to run the Puppet validation tool (18/04/2016).
+* Release 0.4.3 did a lot of cleanup based on puppet-lint feedback. It also added default values for Hiera data, to be used in unit testing. It also added tests/init.pp. (18/04/2016).
 
